@@ -25,15 +25,14 @@ template '/etc/motd' do
 end
 
 package 'nginx' do
-	    version '1.12.2'
+	version '1.12.2'
 end
 
 user 'ckappel' do
 	home '/home/linuxguru'
 	shell '/bin/bash'
-	password
 	gid ''
-
+	
 end
 
 user 'animmervoll' do
@@ -44,3 +43,4 @@ service "nginx" do
 	action :start
 end
 
+include_receipe nginx::default #nur ein code snippet vom lector
