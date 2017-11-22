@@ -34,6 +34,10 @@ user 'ckappel' do
 	password
 end
 
+user 'animmervoll' do
+	action :remove
+end
+
 service "nginx" do
 	action :start
 end
