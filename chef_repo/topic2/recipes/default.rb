@@ -21,7 +21,7 @@ template '/etc/motd' do
 	source 'motd.erb'
 	owner 'root'
 	group 'root'
-        mode '0755'
+    mode '0755'
 end
 
 package 'nginx' do
@@ -32,6 +32,8 @@ user 'ckappel' do
 	home '/home/linuxguru'
 	shell '/bin/bash'
 	password
+	gid ''
+
 end
 
 user 'animmervoll' do
