@@ -1,40 +1,12 @@
-#
-# Cookbook:: topic2
-# Recipe:: default
-#
-# Copyright:: 2017, The Authors, All Rights Reserved.
+### attributes
 
-execute "update-upgrade" do
-	command "apt-get update && apt-get upgrade -y"
-	acrion :run
-end
-
-package 'openssh' do
-	    action :upgrade
-end
-
-package 'vim' 'nano' 'git' 'vi' 'tree' 'rsyslog' do
-	    action :upgrade
-end
-
-template '/etc/motd' do
-	source 'motd.erb'
-	owner 'root'
-	group 'root'
-        mode '0755'
-end
-
-package 'nginx' do
-	    version '1.12.2'
-end
-
-user 'ckappel' do
-	home '/home/linuxguru'
-	shell '/bin/bash'
-	password
-end
-
-service "nginx" do
-	action :start
-end
-
+default['nginx']['version']      = '1.12.1'
+default['nginx']['package_name'] = 'nginx'
+default['nginx']['port']         = '8080,8443'
+default['nginx']['dir']          = '/etc/nginx'
+default['nginx']['script_dir']   = '/usr/sbin'
+default['nginx']['log_dir']      = '/var/log/nginx'
+default['nginx']['log_dir_perm'] = '0750'
+default['nginx']['binary']       = '/usr/sbin/nginx'
+default['nginx']['default_root'] = '/var/www/nginx-default'
+default['nginx']['ulimit']       = '1024'
