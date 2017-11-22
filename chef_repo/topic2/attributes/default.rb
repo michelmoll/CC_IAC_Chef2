@@ -1,6 +1,6 @@
 ### attributes
 
-default['nginx']['version']      = '1.12.1'
+default['nginx']['version']      = '1.12.2'
 default['nginx']['package_name'] = 'nginx'
 default['nginx']['port']         = '8080,8443'
 default['nginx']['dir']          = '/etc/nginx'
