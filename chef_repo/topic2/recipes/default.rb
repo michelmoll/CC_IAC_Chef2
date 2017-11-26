@@ -4,6 +4,13 @@
 #
 # Copyright:: 2017, The Authors, All Rights Reserved.
 
+#execute "update-upgrade" do
+#	command "yum update -y"
+#	action :run
+#end
+
+
+
 package 'openssh' do
 	    action :upgrade
 end
@@ -25,23 +32,18 @@ template '/etc/motd' do
         })
 end
 
-package 'nginx' do
-	version '1.12.2'
-end
+#package 'nginx' do
+#	version '1.12.1'
+#end
 
 user 'ckappel' do
 	home '/home/linuxguru'
 	shell '/bin/bash'
-	gid ''
-	
+	gid 'root'
 end
 
 user 'animmervoll' do
 	action :remove
 end
 
-service "nginx" do
-	action :start
-end
-
-include_recipe 'nginx::default' #nur ein code snippet vom lector
+include_recipe 'nginx::default'
