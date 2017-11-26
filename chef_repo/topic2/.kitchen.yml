@@ -22,5 +22,5 @@ suites:
       - recipe[topic2::default]
     verifier:
       inspec_tests:
-        - test/smoke/default
+        - test
     attributes:
