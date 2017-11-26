@@ -4,16 +4,11 @@
 #
 # Copyright:: 2017, The Authors, All Rights Reserved.
 
-execute "update-upgrade" do
-	command "apt-get update && apt-get upgrade -y"
-	acrion :run
-end
-
 package 'openssh' do
 	    action :upgrade
 end
 
-package 'vim' 'nano' 'git' 'vi' 'tree' 'rsyslog' do
+package ['vim', 'nano', 'git', 'vi', 'tree', 'rsyslog'] do
 	    action :upgrade
 end
 
