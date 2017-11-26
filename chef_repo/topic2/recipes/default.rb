@@ -17,6 +17,12 @@ template '/etc/motd' do
 	owner 'root'
 	group 'root'
     mode '0755'
+    variables  ({
+        group: node['motd']['group'],
+        members: node['motd']['members'],
+        lecturer: node['motd']['lecturer'],
+        message: node['motd']['message']
+        })
 end
 
 package 'nginx' do
@@ -38,4 +44,4 @@ service "nginx" do
 	action :start
 end
 
-include_receipe nginx::default #nur ein code snippet vom lector
+include_recipe 'nginx::default' #nur ein code snippet vom lector
