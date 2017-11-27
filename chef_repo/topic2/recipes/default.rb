@@ -44,17 +44,13 @@ user 'ckappel' do
 	gid 'root'
 end
 
-execute 'troubleshoot' do
-	command 'ls /home -l'
-  end
-
 user 'animmervoll' do
 	action :remove
 end
 
-nginx_site "default" do 
-	enable true 
-	template 'default-site.erb'
-end 
+#nginx_site "default" do 
+#	enable true 
+#	template 'default-site.erb'
+#end 
 
 include_recipe 'nginx::default'

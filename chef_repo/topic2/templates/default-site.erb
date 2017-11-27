@@ -1,0 +1,14 @@
+server {
+  <% node['nginx']['port'].each do |item| %>
+    listen <%= item %>;
+  <% end %>
+
+  server_name  <%= node['hostname'] %>;
+
+  access_log  <%= node['nginx']['log_dir'] %>/localhost.access.log;
+
+  location / {
+    root   <%= node['nginx']['default_root'] %>;
+    index  index.html index.htm;
+  }
+}

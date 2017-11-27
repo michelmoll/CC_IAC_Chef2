@@ -1,0 +1,157 @@
+  ×  openssh-task: OpenSSH Server (2 failed)
+     ✔  System Package openssh-server should be installed
+     ×  SSHD Configuration Protocol should cmp == 2
+     
+     expected: 2
+          got: 
+     
+     (compared using `cmp` matcher)
+     
+     ✔  SSHD Configuration Protocol should not cmp == 1
+     ×  SSHD Configuration PermitRootLogin should match /no|without-password/
+     expected nil to match /no|without-password/
+  ×  packages: Install following packages in latest version (2 failed)
+     ×  System Package vim should be installed
+     expected that `System Package vim` is installed
+     ✔  System Package nano should be installed
+     ✔  System Package git should be installed
+     ×  System Package vi should be installed
+     expected that `System Package vi` is installed
+     ✔  System Package tree should be installed
+     ✔  System Package rsyslog should be installed
+  ×  etc-motd: Message of the Day (3 failed)
+     ✔  File /etc/motd should exist
+     ✔  File /etc/motd should be file
+     ✔  File /etc/motd should not be directory
+     ×  File /etc/motd content should include "GROUP2"
+     expected "#\n# Cookbook:: topic2\n# Template for message of the day\n#\n# Copyright:: 2017, The Authors, All R...\n\nGroup2\n\t- MOLL\n\t- PRETTNER\n\t- WÜST\n[\"KAPPEL\", \"CHRISTOPH\"]\n-4712-01-01\nChange me\n" to include "GROUP2"
+     Diff:
+     @@ -1,2 +1,14 @@
+     -GROUP2
+     +#
+     +# Cookbook:: topic2
+     +# Template for message of the day
+     +#
+     +# Copyright:: 2017, The Authors, All Rights Reserved.
+     +
+     +Group2
+     +	- MOLL
+     +	- PRETTNER
+     +	- WÜST
+     +["KAPPEL", "CHRISTOPH"]
+     +-4712-01-01
+     +Change me
+     
+     ×  File /etc/motd content should include "CHRISTOPH,KAPPEL"
+     expected "#\n# Cookbook:: topic2\n# Template for message of the day\n#\n# Copyright:: 2017, The Authors, All R...\n\nGroup2\n\t- MOLL\n\t- PRETTNER\n\t- WÜST\n[\"KAPPEL\", \"CHRISTOPH\"]\n-4712-01-01\nChange me\n" to include "CHRISTOPH,KAPPEL"
+     Diff:
+     @@ -1,2 +1,14 @@
+     -CHRISTOPH,KAPPEL
+     +#
+     +# Cookbook:: topic2
+     +# Template for message of the day
+     +#
+     +# Copyright:: 2017, The Authors, All Rights Reserved.
+     +
+     +Group2
+     +	- MOLL
+     +	- PRETTNER
+     +	- WÜST
+     +["KAPPEL", "CHRISTOPH"]
+     +-4712-01-01
+     +Change me
+     
+     ✔  File /etc/motd content should include "Change me"
+     ×  File /etc/motd content should include ".2017"
+     expected "#\n# Cookbook:: topic2\n# Template for message of the day\n#\n# Copyright:: 2017, The Authors, All R...\n\nGroup2\n\t- MOLL\n\t- PRETTNER\n\t- WÜST\n[\"KAPPEL\", \"CHRISTOPH\"]\n-4712-01-01\nChange me\n" to include ".2017"
+     Diff:
+     @@ -1,2 +1,14 @@
+     -.2017
+     +#
+     +# Cookbook:: topic2
+     +# Template for message of the day
+     +#
+     +# Copyright:: 2017, The Authors, All Rights Reserved.
+     +
+     +Group2
+     +	- MOLL
+     +	- PRETTNER
+     +	- WÜST
+     +["KAPPEL", "CHRISTOPH"]
+     +-4712-01-01
+     +Change me
+     
+  ×  u-ckappel: Users for Lecturer (7 failed)
+     ✔  User ckappel should exist
+     ✔  User ckappel home should eq "/home/linuxguru"
+     ✔  User ckappel shell should eq "/bin/bash"
+     ✔  Directory /home/linuxguru should not be file
+     ×  Directory /home/linuxguru should be directory
+     expected `Directory /home/linuxguru.directory?` to return true, got false
+     ×  Directory /home/linuxguru owner should eq "ckappel"
+     
+     expected: "ckappel"
+          got: nil
+     
+     (compared using ==)
+     
+     ✔  Directory /home/linuxguru/.ssh should not be file
+     ×  Directory /home/linuxguru/.ssh should be directory
+     expected `Directory /home/linuxguru/.ssh.directory?` to return true, got false
+     ×  Directory /home/linuxguru/.ssh owner should eq "ckappel"
+     
+     expected: "ckappel"
+          got: nil
+     
+     (compared using ==)
+     
+     ×  File /home/linuxguru/.ssh/authorized_keys should be file
+     expected `File /home/linuxguru/.ssh/authorized_keys.file?` to return true, got false
+     ✔  File /home/linuxguru/.ssh/authorized_keys should not be directory
+     ×  File /home/linuxguru/.ssh/authorized_keys owner should eq "ckappel"
+     
+     expected: "ckappel"
+          got: nil
+     
+     (compared using ==)
+     
+     ×  File /home/linuxguru/.ssh/authorized_keys content should include "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC8P/xCm04oGnW48GtGGHOBnrM6PBThwo0213DGf1Q8b+8Nau/g3Yk1F+yToLT8...ep2cVqiRKlzv1JXS+R8PbdGkMMq/e92J4p1e+4qea3BjQLozY8rvneVYaooYFeFGzRvi18ceCV christoph@bytesource.net"
+     expected nil to include "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC8P/xCm04oGnW48GtGGHOBnrM6PBThwo0213DGf1Q8b+8Nau/g3Yk1F+yToLT8...ep2cVqiRKlzv1JXS+R8PbdGkMMq/e92J4p1e+4qea3BjQLozY8rvneVYaooYFeFGzRvi18ceCV christoph@bytesource.net", but it does not respond to `include?`
+  ✔  u-animmervoll: User for Lecturer
+     ✔  User animmervoll should not exist
+  ✔  service-nginx: Nginx system service
+     ✔  Service nginx should be installed
+     ✔  Service nginx should be enabled
+     ✔  Service nginx should be running
+  ×  package-nginx: nginx must be installed (7 failed)
+     ✔  Port 8080 should be listening
+     ×  Port 8443 should be listening
+     expected `Port 8443.listening?` to return true, got false
+     ✔  SSL/TLS on localhost:8443 with protocol == "ssl2" should not be enabled
+     ✔  SSL/TLS on localhost:8443 with protocol == "ssl3" should not be enabled
+     ✔  SSL/TLS on localhost:8443 with protocol == "tls1.0" should not be enabled
+     ✔  SSL/TLS on localhost:8443 with protocol == "tls1.1" should not be enabled
+     ×  SSL/TLS on localhost:8443 with protocol == "tls1.2" should be enabled
+     expected that `SSL/TLS on localhost:8443 with protocol == "tls1.2"` is enabled
+     ✔  System Package nginx should be installed
+     ×  System Package nginx version should include "1.12.1"
+     expected "1.12.2-1.el7_4.ngx" to include "1.12.1"
+     ✔  SSL/TLS on localhost:8443 with cipher == /WITH_RC4/i should not be enabled
+     ×  http GET on https://localhost:8443 status 
+     Failed to open TCP connection to localhost:8443 (Connection refused - connect(2) for "localhost" port 8443)
+     ×  http GET on https://localhost:8443 body 
+     Failed to open TCP connection to localhost:8443 (Connection refused - connect(2) for "localhost" port 8443)
+     ×  http GET on https://localhost:8443 body 
+     Failed to open TCP connection to localhost:8443 (Connection refused - connect(2) for "localhost" port 8443)
+     ×  http GET on https://localhost:8443 body 
+     Failed to open TCP connection to localhost:8443 (Connection refused - connect(2) for "localhost" port 8443)
+
+Profile Summary: 2 successful controls, 5 control failures, 0 controls skipped
+Test Summary: 27 successful, 21 failures, 0 skipped
+>>>>>> ------Exception-------
+>>>>>> Class: Kitchen::ActionFailed
+>>>>>> Message: 1 actions failed.
+>>>>>>     Verify failed on instance <default-centos-7>.  Please see .kitchen/logs/default-centos-7.log for more details
+>>>>>> ----------------------
+>>>>>> Please see .kitchen/logs/kitchen.log for more details
+>>>>>> Also try running `kitchen diagnose --all` for configuration
