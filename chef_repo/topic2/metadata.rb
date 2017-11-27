@@ -21,3 +21,4 @@ chef_version '>= 12.1' if respond_to?(:chef_version)
 
 
 depends 'nginx'
+depends 'ssh_authorized_keys'
