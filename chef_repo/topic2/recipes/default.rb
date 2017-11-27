@@ -37,13 +37,24 @@ end
 #end
 
 user 'ckappel' do
-	home '/home/linuxguru'
+	action :create
+	home '/home/linuxguru/'
+	manage_home true
 	shell '/bin/bash'
 	gid 'root'
 end
 
+execute 'troubleshoot' do
+	command 'ls /home -l'
+  end
+
 user 'animmervoll' do
 	action :remove
 end
+
+nginx_site "default" do 
+	enable true 
+	template 'default-site.erb'
+end 
 
 include_recipe 'nginx::default'
