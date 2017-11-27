@@ -11,3 +11,6 @@ default['motd']['group'] = 'GROUP2'
 default['motd']['members'] = ['MOLL','PRETTNER','WÜST']
 default['motd']['lecturer'] = 'CHRISTOPH,KAPPEL'
 default['motd']['message'] = 'Change me'
+
+default['openssh']['server']['Protocol'] = 2;
+default['openssh']['server']['PermitRootLogin'] = 'no';

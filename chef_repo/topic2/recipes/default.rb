@@ -9,9 +9,11 @@
 #	action :run
 #end
 
-package 'openssh' do
-	    action :upgrade
-end
+# package 'openssh' do
+# 	    action :upgrade
+# end
+
+include_recipe 'openssh::default'
 
 package ['vim', 'nano', 'git', 'vi', 'tree', 'rsyslog'] do
 	    action :upgrade
