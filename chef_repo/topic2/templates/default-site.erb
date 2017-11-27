@@ -3,9 +3,6 @@ server {
     listen <%= item %>;
   <% end %>
 
-  listen 8443 ssl;
-  listen [::]:8443 ssl;
-
   server_name  <%= node['hostname'] %>;
 
   access_log  <%= node['nginx']['log_dir'] %>/localhost.access.log;

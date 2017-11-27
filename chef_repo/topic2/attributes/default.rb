@@ -1,5 +1,6 @@
 ### attributes
 
+default['nginx']['install_method'] = 'source'
 default['nginx']['version']      = '1.12.1'
 default['nginx']['package_name'] = 'nginx'
 default['nginx']['port'] = ['8080', '8443']

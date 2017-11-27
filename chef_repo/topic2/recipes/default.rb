@@ -4,15 +4,6 @@
 #
 # Copyright:: 2017, The Authors, All Rights Reserved.
 
-#execute "update-upgrade" do
-#	command "yum update -y"
-#	action :run
-#end
-
-# package 'openssh' do
-# 	    action :upgrade
-# end
-
 include_recipe 'openssh::default'
 
 package ['vim', 'nano', 'git', 'vi', 'tree', 'rsyslog'] do
@@ -53,6 +44,12 @@ end
 
 include_recipe 'nginx::default'
 
+# link, so we can use nginx cli
+execute "add-nginx-to-bin" do
+	command "ln -s /opt/nginx-1.12.1/sbin/* /usr/local/bin"
+	action :run
+end
+
 directory '/etc/nginx' do
 	action :create
 end
@@ -62,6 +59,6 @@ directory '/etc/nginx/sites-available' do
 end
 
 nginx_site "default" do 
-	enable true 
+	action :enable
 	template 'default-site.erb'
 end 
