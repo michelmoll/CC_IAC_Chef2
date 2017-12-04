@@ -48,6 +48,7 @@ include_recipe 'nginx::default'
 execute "add-nginx-to-bin" do
 	command "ln -s /opt/nginx-1.12.1/sbin/* /usr/local/bin"
 	action :run
+	not_if { ::File.exist?('/usr/local/bin') }
 end
 
 directory '/etc/nginx' do
