@@ -58,7 +58,26 @@ directory '/etc/nginx/sites-available' do
 	action :create
 end
 
-nginx_site "default" do 
+nginx_site 'default' do 
 	action :enable
 	template 'default-site.erb'
 end 
+
+directory 'var/www' do
+	action :create
+end
+
+directory 'var/www/nginx' do 
+	action :create
+end
+
+# add index.html
+template '/var/www/nginx/index.html' do
+	source 'default-site.html.erb'
+	variables  ({
+    	group: node['motd']['group'],
+        members: node['motd']['members'],
+        lecturer: node['motd']['lecturer'],
+        message: node['motd']['message']
+    })
+end
