@@ -16,7 +16,6 @@ In the recipe we have done the installation of simple software component, the ad
 Metadata:
 In the metadata we have set the dependencies for the existing cookbooks.
 =======
-#Use knife cookbook upload 'nginx', '~> 7.0.2' for using it through dependency later
 
 For the message of the day the following attributes are available:
 
