@@ -48,8 +48,14 @@ include_recipe 'nginx::default'
 execute "add-nginx-to-bin" do
 	command "ln -s /opt/nginx-1.12.1/sbin/* /usr/local/bin"
 	action :run
-	not_if { ::File.exist?('/usr/local/bin') }
+	not_if { ::File.exist?('/usr/local/bin/nginx') }
 end
+
+# ssl
+execute "add ssl_dhparam" do
+	command "openssl dhparam -out /etc/nginx/dhparam.pem 4096"
+	not_if { ::File.exist?('/etc/nginx/dhparam.pem') }
+end 
 
 directory '/etc/nginx' do
 	action :create

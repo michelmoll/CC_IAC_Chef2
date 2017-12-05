@@ -6,6 +6,7 @@ default['nginx']['package_name'] = 'nginx'
 default['nginx']['port'] = ['8080', '8443']
 default['nginx']['default_root'] = '/var/www/nginx'
 default['nginx']['default_site_enabled'] = false
+default['nginx']['source']['configure_flags'] = ['--with-http_ssl_module']
 
 #define attributes for the template motd
 default['motd']['group'] = 'GROUP2'
