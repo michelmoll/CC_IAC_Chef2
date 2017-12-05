@@ -2,6 +2,7 @@
 
 We made this Cookbook for the distribution of specific Setup on Centos 7 Servers.
 
+<<<<<<< HEAD
 Usage of Existing Cookbooks:
 We have used the following cookbooks which we found in the supermarket: nginx, openssh & ssh_authorized_keys
 
@@ -14,3 +15,13 @@ In the recipe we have done the installation of simple software component, the ad
 
 Metadata:
 In the metadata we have set the dependencies for the existing cookbooks.
+=======
+#Use knife cookbook upload 'nginx', '~> 7.0.2' for using it through dependency later
+
+For the message of the day the following attributes are available:
+
+default['motd']['group'] 
+default['motd']['members'] 
+default['motd']['lecturer'] 
+default['motd']['message'] 
+>>>>>>> origin/master
