@@ -22,13 +22,13 @@ Attributes for `nginx`:
 
 See https://supermarket.chef.io/cookbooks/nginx for more details on attributes for the nginx cookbook.  
   
-For motd (message of the day) the following attributes are available:
+For motd (message of the day) the following attributes are available:  
 `default['motd']['group']`    
 `default['motd']['members']`    
 `default['motd']['lecturer']`     
 `default['motd']['message']`     
   
-Attributes for openssh:
+Attributes for openssh:  
 `default['openssh']['server']['Protocol'] = 2;` (only use ssh version 2)  
 `default['openssh']['server']['PermitRootLogin'] = 'no'`   
 
