@@ -10,27 +10,27 @@ You can change the attributes in `attributes/default.rb` to adapt the configurat
 
 Attributes for `nginx`:  
 - Configuration for nginx source installation
-default['nginx']['install_method'] = 'source'  
-default['nginx']['version']      = '1.12.1'  
-default['nginx']['source']['configure_flags'] = ['--with-http_ssl_module']  
+`default['nginx']['install_method'] = 'source'`  
+`default['nginx']['version']      = '1.12.1'`  
+`default['nginx']['source']['configure_flags'] = ['--with-http_ssl_module']`  
   
 - Ports to listen to  
-default['nginx']['port'] = ['8080', '8443']  
+`default['nginx']['port'] = ['8080', '8443']`    
   
 - Set to true, if you want to start out with the default site provided by the installation  
-default['nginx']['default_site_enabled'] = false  
+`default['nginx']['default_site_enabled'] = false`   
 
 See https://supermarket.chef.io/cookbooks/nginx for more details on attributes for the nginx cookbook.  
   
 For motd (message of the day) the following attributes are available:
-default['motd']['group']  
-default['motd']['members']   
-default['motd']['lecturer']   
-default['motd']['message']   
+`default['motd']['group']`    
+`default['motd']['members']`    
+`default['motd']['lecturer']`     
+`default['motd']['message']`     
   
 Attributes for openssh:
-default['openssh']['server']['Protocol'] = 2; (only use ssh version 2)  
-default['openssh']['server']['PermitRootLogin'] = 'no'   
+`default['openssh']['server']['Protocol'] = 2;` (only use ssh version 2)  
+`default['openssh']['server']['PermitRootLogin'] = 'no'`   
 
 See https://supermarket.chef.io/cookbooks/openssh for more details on the attributes for the openssh cookbook.   
   
